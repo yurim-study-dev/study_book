@@ -1,0 +1,199 @@
+@import "tailwindcss";
+@import "highlight.js/styles/atom-one-dark.css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #ffffff;
+  --foreground: #1e293b;
+}
+
+.dark {
+  --background: #060c18;
+  --foreground: #e2e8f0;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+
+/* Markdown content styles */
+.prose h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e2e8f0;
+  color: #0f172a;
+}
+.dark .prose h1 { color: #f1f5f9; border-bottom-color: #334155; }
+
+.prose h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.375rem;
+  border-bottom: 1px solid #e2e8f0;
+  color: #1e293b;
+}
+.dark .prose h2 { color: #e2e8f0; border-bottom-color: #334155; }
+
+.prose h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #334155;
+}
+.dark .prose h3 { color: #cbd5e1; }
+
+.prose p {
+  margin-bottom: 1rem;
+  line-height: 1.75;
+  color: #334155;
+}
+.dark .prose p { color: #cbd5e1; }
+
+.prose ul, .prose ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  color: #334155;
+}
+.dark .prose ul, .dark .prose ol { color: #cbd5e1; }
+
+.prose li { margin-bottom: 0.25rem; line-height: 1.7; }
+
+.prose strong { color: #0f172a; font-weight: 700; }
+.dark .prose strong { color: #f1f5f9; }
+
+.prose a { color: #3b82f6; text-decoration: underline; }
+.dark .prose a { color: #60a5fa; }
+
+.prose blockquote {
+  border-left: 4px solid #eab308;
+  padding: 0.625rem 1rem;
+  margin: 1rem 0;
+  background: #fefce8;
+  border-radius: 0 0.5rem 0.5rem 0;
+  color: #713f12;
+}
+.dark .prose blockquote {
+  background: #1c1a05;
+  color: #fde68a;
+  border-left-color: #ca8a04;
+}
+
+.prose pre {
+  position: relative;
+  background: #161b22 !important;
+  border: 1px solid #30363d;
+  border-radius: 0.5rem;
+  padding: 1.125rem 1.25rem;
+  padding-right: 3rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+.prose pre code {
+  font-size: 0.8125rem;
+  line-height: 1.75;
+  background: transparent !important;
+  font-family: ui-monospace, 'Cascadia Code', 'Fira Code', monospace;
+}
+
+.prose code:not(pre code) {
+  background: #fef2f2;
+  color: #be185d;
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.3rem;
+  font-size: 0.9em;
+  font-weight: 500;
+  font-family: 'Cascadia Code', 'Consolas', ui-monospace, monospace;
+  border: 1px solid #fecdd3;
+}
+.dark .prose code:not(pre code) {
+  background: #2d1b2e;
+  color: #f9a8d4;
+  border-color: #831843;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.875rem;
+}
+.prose th {
+  background: #f8fafc;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  font-weight: 600;
+  border: 1px solid #e2e8f0;
+  color: #475569;
+}
+.dark .prose th { background: #1e293b; border-color: #334155; color: #94a3b8; }
+.prose td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+}
+.dark .prose td { border-color: #334155; color: #cbd5e1; }
+.prose tr:nth-child(even) td { background: #f8fafc; }
+.dark .prose tr:nth-child(even) td { background: #1e293b; }
+
+.prose hr {
+  border: none;
+  border-top: 1px solid #e2e8f0;
+  margin: 1.5rem 0;
+}
+.dark .prose hr { border-top-color: #334155; }
+
+/* highlight.js — force transparent so .prose pre background shows */
+.hljs { background: transparent !important; }
+.prose pre .hljs { background: transparent !important; }
+
+/* Copy button */
+.copy-btn {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background: #21262d;
+  border: 1px solid #30363d;
+  border-radius: 0.375rem;
+  color: #8b949e;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.copy-btn:hover { background: #30363d; color: #e6edf3; border-color: #8b949e; }
+.copy-btn.copied { border-color: #3fb950; color: #3fb950; }
+
+/* Heading anchor links */
+.heading-anchor {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none !important;
+  opacity: 0;
+  margin-right: 0.375rem;
+  transition: opacity 0.15s;
+}
+.anchor-icon {
+  font-size: 0.875em;
+  font-weight: 400;
+  color: #6366f1;
+  line-height: 1;
+}
+.prose h1:hover .heading-anchor,
+.prose h2:hover .heading-anchor,
+.prose h3:hover .heading-anchor {
+  opacity: 1;
+}
