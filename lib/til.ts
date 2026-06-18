@@ -50,6 +50,24 @@ function addHeadingAnchors(html: string): string {
   )
 }
 
+const HEADING_ICONS: [RegExp, string][] = [
+  [/핵심\s*정리/, '💡'],
+  [/배운\s*점|배운점/, '✅'],
+  [/학습\s*목표/, '🎯'],
+  [/오늘의?\s*회고|회고/, '📝'],
+]
+
+function addHeadingIcons(html: string): string {
+  let result = html
+  for (const [re, icon] of HEADING_ICONS) {
+    result = result.replace(
+      new RegExp(`(</a>)(\\s*)([^<]*${re.source}[^<]*)(</h[1-3]>)`, 'g'),
+      `$1$2${icon} $3$4`
+    )
+  }
+  return result
+}
+
 function githubHeaders(): HeadersInit {
   const headers: HeadersInit = { Accept: 'application/vnd.github.v3+json' }
   if (process.env.GITHUB_TOKEN) {
@@ -108,7 +126,7 @@ export async function getTilByDate(date: string): Promise<TilFull | null> {
   const idx = dates.indexOf(date)
   return {
     ...meta,
-    contentHtml: addHeadingAnchors(processed.toString()),
+    contentHtml: addHeadingIcons(addHeadingAnchors(processed.toString())),
     prevDate: idx > 0 ? dates[idx - 1] : null,
     nextDate: idx < dates.length - 1 ? dates[idx + 1] : null,
   }
