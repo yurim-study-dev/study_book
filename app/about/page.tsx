@@ -74,6 +74,78 @@ export default async function AboutPage() {
         </div>
       </section>
 
+      {/* Reference Sites */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">📖 참고 사이트</h2>
+        <div className="space-y-4">
+          <div className="rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-800/50">
+            <p className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">자바 학습</p>
+            <ul className="space-y-2">
+              {[
+                { label: '위키독스 점프 투 자바', href: 'https://wikidocs.net/book/31' },
+                { label: '위키독스 프로그래밍 입문자를 위한 Java 기초', href: 'https://wikidocs.net/book/2970' },
+                { label: 'Oracle Java Tutorials (dev.java)', href: 'https://dev.java/learn' },
+              ].map(({ label, href }) => (
+                <li key={href}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm text-indigo-600 hover:underline dark:text-indigo-400"
+                  >
+                    <span className="text-xs">↗</span>
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-800/50">
+            <p className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">코딩 테스트</p>
+            <ul className="space-y-2">
+              {[
+                { label: '프로그래머스 코딩 테스트', href: 'https://school.programmers.co.kr/learn/challenges' },
+                { label: '자바 기초 트레이닝', href: 'https://school.programmers.co.kr/learn/challenges/training?languages=java' },
+                { label: '자바 입문', href: 'https://school.programmers.co.kr/learn/challenges/beginner?languages=java' },
+                { label: '자바 레벨 1', href: 'https://school.programmers.co.kr/learn/challenges?languages=java&levels=1' },
+              ].map(({ label, href }) => (
+                <li key={href}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm text-indigo-600 hover:underline dark:text-indigo-400"
+                  >
+                    <span className="text-xs">↗</span>
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-800/50">
+            <p className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">기타 도구</p>
+            <ul className="space-y-2">
+              {[
+                { label: 'gitignore.io - .gitignore 자동 생성', href: 'https://www.toptal.com/developers/gitignore' },
+              ].map(({ label, href }) => (
+                <li key={href}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm text-indigo-600 hover:underline dark:text-indigo-400"
+                  >
+                    <span className="text-xs">↗</span>
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
       {/* This site */}
       <section className="space-y-3">
         <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">이 사이트는</h2>
