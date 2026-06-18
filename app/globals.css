@@ -82,9 +82,9 @@ body {
   color: #713f12;
 }
 .dark .prose blockquote {
-  background: #1c1a05;
-  color: #fde68a;
-  border-left-color: #ca8a04;
+  background: rgba(254, 240, 138, 0.13);
+  color: #fef08a;
+  border-left-color: #eab308;
 }
 
 .prose pre {
